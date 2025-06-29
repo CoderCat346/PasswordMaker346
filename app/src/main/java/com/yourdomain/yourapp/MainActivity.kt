@@ -1,46 +1,75 @@
 package com.yourdomain.yourapp
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
-    // This function runs when the activity is created (app starts)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Connect this Activity to the layout file: res/layout/activity_main.xml
         setContentView(R.layout.activity_main)
 
-        // Get references to the views defined in the XML
+        // Get UI elements by ID
         val passwordLengthInput = findViewById<EditText>(R.id.passwordLengthInput)
+        val uppercaseCheckBox = findViewById<CheckBox>(R.id.uppercaseCheckBox)
+        val numbersCheckBox = findViewById<CheckBox>(R.id.numbersCheckBox)
+        val symbolsCheckBox = findViewById<CheckBox>(R.id.symbolsCheckBox)
         val generateButton = findViewById<Button>(R.id.generateButton)
         val passwordOutput = findViewById<TextView>(R.id.passwordOutput)
+        val copyButton = findViewById<Button>(R.id.copyButton)
 
-        // Set a click listener on the button
+        // When user clicks "Generate Password"
         generateButton.setOnClickListener {
-            // Read the length input by the user, convert to Int or default to 8 if blank/invalid
-            val length = passwordLengthInput.text.toString().toIntOrNull() ?: 8
+            val length = passwordLengthInput.text.toString().toIntOrNull()
 
-            // Call the function to generate a random password
-            val password = generatePassword(length)
+            // ✅ Error handling: if input is invalid or empty
+            if (length == null || length <= 0) {
+                Toast.makeText(this, "Please enter a valid positive number!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
-            // Show the generated password in the TextView
+            // Build character pool based on checkboxes
+            var chars = "abcdefghijklmnopqrstuvwxyz"
+
+            if (uppercaseCheckBox.isChecked) {
+                chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            }
+            if (numbersCheckBox.isChecked) {
+                chars += "0123456789"
+            }
+            if (symbolsCheckBox.isChecked) {
+                chars += "!@#\$%^&*()"
+            }
+
+            // Ensure at least one character type is selected
+            if (chars.isEmpty()) {
+                Toast.makeText(this, "Please select at least one character type!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Generate password
+            val password = (1..length)
+                .map { chars.random() }
+                .joinToString("")
+
             passwordOutput.text = password
         }
-    }
 
-    // This function builds a random password of the given length
-    private fun generatePassword(length: Int): String {
-        // Allowed characters: uppercase, lowercase, digits, special chars
-        val chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#\$%^&*()"
-
-        // Repeat for the given length: pick a random character each time, then join them together
-        return (1..length)
-            .map { chars.random() } // Pick a random char from 'chars'
-            .joinToString("")       // Combine all chars into a single String
+        // When user clicks "Copy to Clipboard"
+        copyButton.setOnClickListener {
+            val password = passwordOutput.text.toString()
+            if (password.isNotBlank()) {
+                val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                val clip = ClipData.newPlainText("Generated Password", password)
+                clipboard.setPrimaryClip(clip)
+                Toast.makeText(this, "Password copied to clipboard!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Nothing to copy!", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }
