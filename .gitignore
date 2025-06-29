@@ -2,3 +2,5 @@
 /build
 /app/.gradle
 /app/build
+my-release-key.jks
+gradle-local.properties
