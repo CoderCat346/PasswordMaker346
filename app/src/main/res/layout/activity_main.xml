@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Root layout: vertical LinearLayout to stack elements -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Input for password length -->
+    <EditText
+        android:id="@+id/passwordLengthInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password length"
+        android:inputType="number" />
+
+    <!-- CheckBox: Include Uppercase -->
+    <CheckBox
+        android:id="@+id/uppercaseCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Include Uppercase Letters"
+        android:checked="true" />
+
+    <!-- CheckBox: Include Numbers -->
+    <CheckBox
+        android:id="@+id/numbersCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Include Numbers"
+        android:checked="true" />
+
+    <!-- CheckBox: Include Symbols -->
+    <CheckBox
+        android:id="@+id/symbolsCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Include Symbols"
+        android:checked="true" />
+
+    <!-- Generate button -->
+    <Button
+        android:id="@+id/generateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Generate Password" />
+
+    <!-- TextView to show generated password -->
+    <TextView
+        android:id="@+id/passwordOutput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your password will appear here"
+        android:paddingTop="16dp"
+        android:textSize="18sp" />
+
+    <!-- Copy to clipboard button -->
+    <Button
+        android:id="@+id/copyButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Copy to Clipboard" />
+
+</LinearLayout>
