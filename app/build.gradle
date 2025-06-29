@@ -6,10 +6,10 @@ plugins {
 android {
     compileSdk = 34
 
-    namespace = "com.yourdomain.yourapp"
+    namespace = "com.CoderCat346.PasswordMaker346"
 
     defaultConfig {
-        applicationId = "com.yourdomain.yourapp"
+        applicationId = "com.CoderCat346.PasswordMaker346"
         minSdk = 21
         targetSdk = 34
         versionCode = 1
