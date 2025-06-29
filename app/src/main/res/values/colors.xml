@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light background -->
+    <color name="background">#FAFAFA</color>
+
+    <!-- Primary and secondary colors -->
+    <color name="primary">#1976D2</color> <!-- Blue -->
+    <color name="primaryDark">#1565C0</color>
+    <color name="accent">#388E3C</color> <!-- Green -->
+
+    <!-- Text colors -->
+    <color name="textPrimary">#212121</color>
+    <color name="textOnPrimary">#FFFFFF</color>
+
+    <!-- Neutral -->
+    <color name="neutralLight">#EEEEEE</color>
+</resources>

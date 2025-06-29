@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- App theme using AppCompat -->
+    <!-- ✅ App theme -->
     <style name="Theme.MyMinimalApp" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here -->
+        <!-- Use your custom colors -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:textColor">@color/textPrimary</item>
+    </style>
+
+    <!-- ✅ Reusable button style -->
+    <style name="MyButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/textOnPrimary</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <!-- Tint can be overridden per button if you want different colors -->
     </style>
 
 </resources>

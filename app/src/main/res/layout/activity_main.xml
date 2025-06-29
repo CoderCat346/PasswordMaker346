@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Root layout: vertical LinearLayout to stack elements -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:gravity="center_horizontal"
+    android:background="@color/background">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🔒 PasswordMaker346"
+        android:textSize="24sp"
+        android:textColor="@color/textPrimary"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
 
     <!-- Input for password length -->
     <EditText
@@ -12,7 +23,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password length"
-        android:inputType="number" />
+        android:inputType="number"
+        android:padding="12dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:textColor="@color/textPrimary"/>
 
     <!-- CheckBox: Include Uppercase -->
     <CheckBox
@@ -20,7 +34,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Include Uppercase Letters"
-        android:checked="true" />
+        android:checked="true"
+        android:textColor="@color/textPrimary" />
 
     <!-- CheckBox: Include Numbers -->
     <CheckBox
@@ -28,7 +43,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Include Numbers"
-        android:checked="true" />
+        android:checked="true"
+        android:textColor="@color/textPrimary" />
 
     <!-- CheckBox: Include Symbols -->
     <CheckBox
@@ -36,14 +52,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Include Symbols"
-        android:checked="true" />
+        android:checked="true"
+        android:textColor="@color/textPrimary" />
 
     <!-- Generate button -->
     <Button
-        android:id="@+id/generateButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Generate Password" />
+    android:id="@+id/generateButton"
+    style="@style/MyButtonStyle"
+    android:backgroundTint="@color/primary"
+    android:text="Generate Password" />
 
     <!-- TextView to show generated password -->
     <TextView
@@ -51,14 +68,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Your password will appear here"
-        android:paddingTop="16dp"
-        android:textSize="18sp" />
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        android:textColor="@color/textPrimary"
+        android:background="@color/neutralLight"
+        android:gravity="center" />
 
     <!-- Copy to clipboard button -->
     <Button
-        android:id="@+id/copyButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Copy to Clipboard" />
+    android:id="@+id/copyButton"
+    style="@style/MyButtonStyle"
+    android:backgroundTint="@color/accent"
+    android:text="Copy to Clipboard" />
 
 </LinearLayout>
