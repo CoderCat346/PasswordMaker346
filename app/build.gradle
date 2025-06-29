@@ -13,10 +13,10 @@ if (localPropsFile.exists()) {
 android {
     compileSdk = 34
 
-    namespace = "com.CoderCat346.PasswordMaker346"
+    namespace = "com.codercat346.passwordmaker346"
 
     defaultConfig {
-        applicationId = "com.CoderCat346.PasswordMaker346"
+        applicationId = "com.codercat346.passwordmaker346"
         minSdk = 21
         targetSdk = 34
         versionCode = 1

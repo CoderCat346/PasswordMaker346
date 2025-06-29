@@ -1,4 +1,4 @@
-package com.yourdomain.yourapp
+package com.codercat346.passwordmaker346
 
 import android.content.ClipData
 import android.content.ClipboardManager
