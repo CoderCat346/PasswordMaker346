@@ -19,6 +19,9 @@ You don’t need Google Play — just download the latest version directly.
    - If prompted, allow your browser or file manager to install unknown apps.
    - Confirm the installation.
 
+4. **Verify the APK hash for security (optional)**  
+   SHA-256: `cf7f41e82dc61f8164b6f3165848a59c273bd2e3ca7766a3c4839a110c073450`
+
 ---
 
 ## 🔐 How to Use
@@ -59,4 +62,4 @@ This app is free and open source under the MIT License.
 
 ---
 
-**Thank you for using Password Maker!**  
+**Thank you for using PasswordMaker346!**  
